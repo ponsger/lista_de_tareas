@@ -5,7 +5,7 @@
    padding: 0 1%;
    display: flex;
    justify-content: space-between;
-   box-shadow: 4px 5px 2px #ddd;
+   box-shadow: 4px 5px 2px #d0d0d0;
    color: #333;
    align-items: center;
 }
