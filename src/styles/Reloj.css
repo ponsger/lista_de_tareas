@@ -1,0 +1,18 @@
+.reloj{
+    background-color: #10c1ed;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    color: #ededed;
+    border-radius: 10px;
+}
+
+.reloj-fecha{
+    margin: 5px;
+    padding: 5px;
+}
+
+.reloj-tiempo{
+    margin: 5px;
+    padding: 5px;
+}
