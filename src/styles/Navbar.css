@@ -1,0 +1,51 @@
+.navbar{
+   background-color: #f5f5f5;
+   border-radius: 5px;
+   margin: 1%;
+   padding: 0 1%;
+   display: flex;
+   justify-content: space-between;
+   box-shadow: 4px 5px 2px #ddd;
+   color: #333;
+   align-items: center;
+}
+
+.navbar-icon{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar-icon_img{
+    margin: 0 5px;
+}
+
+.navbar-icon_text{
+    font-family:cursive;
+    margin: 0 5px;
+}
+
+.navbar-task_list{
+    margin: auto;
+}
+
+.navbar-task_list-item{
+    text-decoration: none;
+    list-style: none;
+    background-color: #10c1ed;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: 2px 3px 3px #000;
+}
+
+
+.navbar-task_list-item:hover{
+    background-color: #10b1ed;
+}
+
+.navbar-task_list-item:active{
+    background-color: #1091ed;
+}
