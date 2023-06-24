@@ -9,7 +9,7 @@ const taskList=[
                 maximumDate: "2020-06-21",
                 done: true
             },
-                        {
+            {
                 task: "Tarea 2",
                 setDate:"2021-03-10",
                 maximumDate: "2022-06-30",
@@ -43,12 +43,6 @@ const taskList=[
                 task: "Tarea 3.1",
                 setDate:"2020-05-15",
                 maximumDate: "2020-06-21",
-                done: false
-            },
-                        {
-                task: "Tarea 3.2",
-                setDate:"2021-03-10",
-                maximumDate: "2022-06-30",
                 done: false
             }
         ]

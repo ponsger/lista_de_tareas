@@ -1,0 +1,30 @@
+.task-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 15%;
+    align-self: center;
+}
+
+
+.task-list-subject{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.task-list_container{
+    background-color: #ded0de;
+}
+
+
+.task-subject{
+    background-color: #eee;
+    text-transform: capitalize;
+}
+
+.task-subject:hover{
+    cursor: pointer;
+    background-color: #ccc;
+}

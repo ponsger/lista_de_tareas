@@ -1,21 +1,30 @@
-import { Component, Fragment } from "react";
+import { useState } from 'react';
 import taskList from "../data/taskList";
+import '../styles/ListaTareas.css'
+import ItemsFromList from './ItemFromList';
 
-class ListaTareas extends Component {
 
-    render() {
-        return (
-            <Fragment>
-                {
-                    taskList.map(item => (
-                        <div key={item.id}>
+function ListaTareas() {
+
+    const [subjectTasks, setSubjectTasks] = useState("");
+    
+    return (
+        <div className="task-list-subject">
+            {
+                taskList.map(item => (
+                    <div className='task-container' key={item.id}>
+                        <div className="task-subject" onClick={() => setSubjectTasks(item.id)}>
                             <p>{item.subject}</p>
                         </div>
-                    ))
-                }
-            </Fragment>
-        );
-    }
+                        <div className='task-list_container'>
+                            {subjectTasks === item.id ? <ItemsFromList tasks={item.list} />: null }
+                        </div>
+                    </div>
+
+                ))
+            }
+        </div>
+    );
 
 }
 
