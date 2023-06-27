@@ -7,6 +7,7 @@ function ItemsFromList({tasks}){
             {
                 tasks.map( task=>(
                     <div className='task' key={task.task}>
+                        {console.log(task)}
                         <input id={task.task} type='checkbox' defaultChecked={task.done} />
                         <label htmlFor={task.task}>{task.task}</label>
                     </div>
