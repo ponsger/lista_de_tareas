@@ -8,7 +8,6 @@
     align-self: center;
 }
 
-
 .task-list-subject{
     font-weight: 500;
     font-size: 1.2rem;
@@ -17,15 +16,50 @@
 
 .task-list_container{
     background-color: #ded0de;
+    margin: 0;
 }
 
 
 .task-subject{
     background-color: #eee;
     text-transform: capitalize;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon-actions{
+    display: flex;
+    width: 10%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.subject{
+    width: 90%;
+}
+
+.icon{
+    font-size: 1.5em;
+    margin: 5px;
+    padding: 3px; 
+    transition: all ease-in-out .5s;
 }
 
 .task-subject:hover{
     cursor: pointer;
     background-color: #ccc;
+}
+
+.icon:hover{
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.e-icon:hover{
+    background-color: #1d9999;
+
+}
+
+.d-icon:hover{
+    background-color: #dd0055;
 }
