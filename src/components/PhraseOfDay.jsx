@@ -7,7 +7,7 @@ function PhraseOfDay() {
     const [phraseOfDay, setPhrase] = useState({});
 
     useEffect(() => {
-        service.getPhrase().then(data => setPhrase(data));
+        //service.getPhrase().then(data => setPhrase(data));
 
     }, [])
 

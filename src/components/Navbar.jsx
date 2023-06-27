@@ -3,7 +3,7 @@ import Reloj from "./Reloj";
 import '../styles/Navbar.css';
 import icon from '../img/icon.png'
 
-function Navbar() {
+function Navbar({newTask}) {
 
     return (
         <Fragment>
@@ -17,7 +17,7 @@ function Navbar() {
                 </div>
                 <div className="navbar-list">
                     <ul className="navbar-task_list">
-                        <li className="navbar-task_list-item">Crear Tarea u Objetivo</li>
+                        <li className="navbar-task_list-item" onClick={()=> newTask(true)}>Crear Tarea u Objetivo</li>
                     </ul>
                 </div>
             </nav>
