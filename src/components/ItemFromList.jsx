@@ -1,15 +1,35 @@
 import '../styles/ItemFromList.css'
+import { FaXmark, FaPencil } from "react-icons/fa6";
 
-function ItemsFromList({tasks}){
+function ItemsFromList({ tasks, idTask }) {
 
-    return(
+    const taskEdit = (current) =>{
+        console.log("Click task edit");
+        console.log(current);
+        console.log(idTask);
+    }
+
+    const taskDelete = (current) =>{
+        console.log("Click task delete");
+        console.log(current);
+        console.log(idTask);
+    }
+
+    return (
         <div className="task-items">
             {
-                tasks.map( task=>(
+                tasks.map(task => (
                     <div className='task' key={task.task}>
-                        {console.log(task)}
-                        <input id={task.task} type='checkbox' defaultChecked={task.done} />
-                        <label htmlFor={task.task}>{task.task}</label>
+                        <div className='taskOfSubject'>
+                            <input id={task.task} type='checkbox' defaultChecked={task.done} />
+                            <label htmlFor={task.task}>{task.task}</label>
+                            <p>Fecha colocada: {task.maximumDate}</p>
+                        </div>
+                        <div className='icon-actions'>
+                            <span className='icon e-icon' onClick={() => taskEdit(task)}><FaPencil /></span>
+                            <span className='icon d-icon' onClick={() => taskDelete(task)}><FaXmark /></span>
+
+                        </div>
                     </div>
                 ))
             }

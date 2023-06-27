@@ -2,4 +2,15 @@
     margin: 10px 5px;
     font-size: .9rem;
     letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #770055;
+}
+
+.task-items{
+    margin: auto;
+}
+
+.taskOfSubject{
+    width: 80%;
 }
