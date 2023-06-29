@@ -16,15 +16,13 @@ function App() {
 
   useEffect(()=>{
     setChangeData(httpService.getFromLocalStorage())
-    if(reloadData)
-      setReloadData(!reloadData);
   },[reloadData])
 
   return (
     <Fragment>
       <Navbar newTask={setNewSubject} />
       <div className='app-container'>
-        <ListaTareas data={changeData}  /> 
+        <ListaTareas data={changeData} /> 
         {createSubject ? <CreaTarea addedTask={setReloadData} subject={setNewSubject} /> : <Fragment />}
       </div>
     </Fragment>

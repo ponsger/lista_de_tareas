@@ -6,13 +6,11 @@ function ItemsFromList({ tasks, idTask }) {
     const taskEdit = (current) =>{
         console.log("Click task edit");
         console.log(current);
-        console.log(idTask);
     }
 
     const taskDelete = (current) =>{
         console.log("Click task delete");
         console.log(current);
-        console.log(idTask);
     }
 
     return (
