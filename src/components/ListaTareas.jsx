@@ -1,47 +1,46 @@
 import { Fragment, useEffect, useState } from 'react';
 import '../styles/ListaTareas.css'
 import ItemsFromList from './ItemFromList';
-import {FiTrash2,FiEdit3} from 'react-icons/fi'
+import EditSubjectTask from './EditSubjectTask';
+import { FiTrash2, FiEdit3 } from 'react-icons/fi'
 
-function ListaTareas({data}) {
+function ListaTareas({ data }) {
 
     const [subjectTasks, setSubjectTasks] = useState("");
-    const [dataTask, setDataTask]=useState([]);
+    const [dataTask, setDataTask] = useState([]);
 
-    useEffect(()=>{
-            setDataTask(data)
-    },[data]);
+    const [subjectEdit,setSubjectEdit]=useState({});
+    //const [displayEdit,setDisplayEdit] = useState(false);
 
-    const SubjectEdit = (item) =>{
-        console.log("Edit subject Click");
-        console.log(item);
-    }
+    useEffect(() => {
+        setDataTask(data)
+    }, [data]);
 
     const SubjectDelete = (item) => {
-        console.log("Delete subject click");
-        console.log(item);
+        const allTask = data.filter(i => i.id !== item.id);
+        console.log(allTask);
     }
-    
+
     return (
         <div className="task-list-subject">
             {
                 dataTask ? dataTask.map(item => (
                     <div className='task-container' key={item.id}>
-                        <div className="task-subject" onClick={() => setSubjectTasks(item.id)}>
-                            <p className='subject'>{item.subject}</p>
+                        <div className="task-subject" onClick={() => setSubjectTasks(item.id) }>
+                                {subjectEdit.id ===item.id  ? <EditSubjectTask changeData={setSubjectEdit} currentSubject={item} /> :  <p className='subject' >{item.subject}</p>}
                             <div className='icon-actions'>
-                                <span className='icon e-icon' onClick={() =>SubjectEdit(item)}><FiEdit3 /></span>
-                                <span className='icon d-icon' onClick={() =>SubjectDelete(item)}><FiTrash2 /></span>
+                                <span className='icon e-icon' onClick={() => setSubjectEdit(item)}><FiEdit3 /></span>
+                                <span className='icon d-icon' onClick={() => SubjectDelete(item)}><FiTrash2 /></span>
                             </div>
                         </div>
                         <div className='task-list_container'>
-                            {subjectTasks === item.id ? <ItemsFromList tasks={item.list} idTask={item.id}/>: null }
+                            {subjectTasks === item.id ? <ItemsFromList tasks={item.list} idTask={item.id} /> : null}
                         </div>
                     </div>
 
-                )) 
-                : 
-                <Fragment></Fragment>
+                ))
+                    :
+                    <Fragment></Fragment>
             }
         </div>
     );
