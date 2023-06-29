@@ -32,6 +32,28 @@ class HttpService{
         localStorage.setItem('tareas',dataConcat);
     }
 
+
+    getCurrentMiniTask(task, idTask){
+        const allTasks= this.getFromLocalStorage();
+        const currentIndexMainTask = allTasks.findIndex( t => t.id === idTask );
+        const currentTask= allTasks[currentIndexMainTask];
+        const currentMiniTaskIndex=currentTask.list.findIndex( cmt => cmt.task ===task.task);
+        let currentTaskAndMiniTask=allTasks[currentIndexMainTask].list[currentMiniTaskIndex];
+        return currentTaskAndMiniTask;
+    }
+
+    modifyMiniTask(task, idTask,miniTask){
+        let allTasks= this.getFromLocalStorage();
+        const currentIndexMainTask = allTasks.findIndex( t => t.id === idTask );
+        const currentTask= allTasks[currentIndexMainTask];
+        const currentMiniTaskIndex=currentTask.list.findIndex( cmt => cmt.task ===task.task);
+        allTasks[currentIndexMainTask].list[currentMiniTaskIndex]=miniTask;
+        this.setNewTaskToLocalStorage(allTasks);
+    }
+
+
+
+
 }
 
 const instance = new HttpService();
