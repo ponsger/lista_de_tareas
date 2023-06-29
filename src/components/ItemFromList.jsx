@@ -1,12 +1,12 @@
 import '../styles/ItemFromList.css'
 import { FaXmark, FaPencil } from "react-icons/fa6";
+import { useState } from 'react';
+import ShowMiniTask from './ShowMiniTask';
+import EditMiniTask from './EditMiniTask';
 
 function ItemsFromList({ tasks, idTask }) {
 
-    const taskEdit = (current) =>{
-        console.log("Click task edit");
-        console.log(current);
-    }
+    const [editMiniTask, setEditMiniTask] = useState([]);
 
     const taskDelete = (current) =>{
         console.log("Click task delete");
@@ -19,12 +19,10 @@ function ItemsFromList({ tasks, idTask }) {
                 tasks.map(task => (
                     <div className='task' key={task.task}>
                         <div className='taskOfSubject'>
-                            <input id={task.task} type='checkbox' defaultChecked={task.done} />
-                            <label htmlFor={task.task}>{task.task}</label>
-                            <p>Fecha colocada: {task.maximumDate}</p>
+                            {editMiniTask.task === task.task ? <EditMiniTask task={task} idTask={idTask} changeMiniTask={setEditMiniTask} /> : <ShowMiniTask task={task} idTask={idTask}/> }
                         </div>
                         <div className='icon-actions'>
-                            <span className='icon e-icon' onClick={() => taskEdit(task)}><FaPencil /></span>
+                            <span className='icon e-icon' onClick={() => setEditMiniTask(task)}><FaPencil /></span>
                             <span className='icon d-icon' onClick={() => taskDelete(task)}><FaXmark /></span>
 
                         </div>
