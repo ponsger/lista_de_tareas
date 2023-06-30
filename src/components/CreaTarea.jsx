@@ -1,13 +1,15 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useContext } from 'react';
 import '../styles/CreaTarea.css'
 import Tarea from './Tarea';
 import jsonService from '../services/jsonService'
 import httpService from '../services/httpService'
+import { DataStoraged } from '../App';
 
-function CreaTarea({ subject,addedTask }) {
+function CreaTarea({ subject }) {
 
     const [count, setCount] = useState(0)
     const [arrayElements, setArray] = useState([]);
+    const {setChangeData} = useContext(DataStoraged);
 
     const AgregaTarea = (event) => {
         event.preventDefault()
@@ -21,8 +23,8 @@ function CreaTarea({ subject,addedTask }) {
         e.preventDefault();
         const data =Object.fromEntries(new FormData(e.target));
         const dataConverted=jsonService.convertDataToJson(data);
-        GetAndSetFromLocalStorage(dataConverted);
-        addedTask(true);
+        const allNewTasks=GetAndSetFromLocalStorage(dataConverted);
+        setChangeData(allNewTasks);
     }
 
     const GetAndSetFromLocalStorage = (data) => {
@@ -31,6 +33,7 @@ function CreaTarea({ subject,addedTask }) {
             tasks=[];
         tasks.push(data);
         httpService.setNewTaskToLocalStorage(tasks);
+        return tasks;
     }
 
     return (

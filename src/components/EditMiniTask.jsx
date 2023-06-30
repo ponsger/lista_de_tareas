@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import httpService from '../services/httpService'
+import { DataStoraged } from '../App';
 
 function EditMiniTask({ task, idTask, changeMiniTask }) {
+
+    const {setChangeData} = useContext(DataStoraged)
 
     const HandleClickChangeMiniTask = (e) =>{
         e.preventDefault();
@@ -8,8 +12,9 @@ function EditMiniTask({ task, idTask, changeMiniTask }) {
         let miniTaskEdit=httpService.getCurrentMiniTask(task,idTask);
         miniTaskEdit.task=data.description;
         miniTaskEdit.maximumDate=data.date;
-        httpService.modifyMiniTask(task,idTask,miniTaskEdit);
+        const allNewTasks=httpService.modifyMiniTask(task,idTask,miniTaskEdit);
         changeMiniTask([]);
+        setChangeData(allNewTasks)
     }
 
     return <>

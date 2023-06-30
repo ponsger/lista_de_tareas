@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, createContext, useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import PhraseOfDay from './components/PhraseOfDay'
@@ -7,24 +7,27 @@ import CreaTarea from './components/CreaTarea'
 import httpService from './services/httpService'
 
 
+export const DataStoraged = createContext();
+
 function App() {
 
-  const [createSubject,setNewSubject]= useState(false);
+  const [createSubject, setNewSubject] = useState(false);
   const [changeData, setChangeData] = useState();
-  const [reloadData,setReloadData] = useState(false)
 
-
-  useEffect(()=>{
+  useEffect(() => {
     setChangeData(httpService.getFromLocalStorage())
-  },[reloadData])
+  }, [])
 
   return (
     <Fragment>
       <Navbar newTask={setNewSubject} />
-      <div className='app-container'>
-        <ListaTareas data={changeData} /> 
-        {createSubject ? <CreaTarea addedTask={setReloadData} subject={setNewSubject} /> : <Fragment />}
-      </div>
+      {/* <PhraseOfDay /> */}
+      <DataStoraged.Provider value={{changeData,setChangeData}}>
+        <div className='app-container'>
+          <ListaTareas data={changeData} />
+          {createSubject ? <CreaTarea subject={setNewSubject} /> : <Fragment />}
+        </div>
+      </DataStoraged.Provider>
     </Fragment>
   );
 }
