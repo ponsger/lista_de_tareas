@@ -51,6 +51,14 @@ class HttpService{
         this.setNewTaskToLocalStorage(allTasks);
     }
 
+    removeMiniTask(task,idTask){
+        let allTasks= this.getFromLocalStorage();
+        const currentIndexMainTask = allTasks.findIndex( t => t.id === idTask );
+        const currentTask= allTasks[currentIndexMainTask];
+        const currentMiniTaskIndex=currentTask.list.findIndex( cmt => cmt.task ===task.task);
+        allTasks[currentIndexMainTask].list.splice(currentMiniTaskIndex,1);
+        this.setNewTaskToLocalStorage(allTasks);
+    }
 
 
 

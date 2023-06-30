@@ -1,17 +1,16 @@
 import '../styles/ItemFromList.css'
 import { FaXmark, FaPencil } from "react-icons/fa6";
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import ShowMiniTask from './ShowMiniTask';
 import EditMiniTask from './EditMiniTask';
+import ModalAdvise from './ModalAdvise';
 
 function ItemsFromList({ tasks, idTask }) {
 
     const [editMiniTask, setEditMiniTask] = useState([]);
+    const [deleteMiniTask,setDeleteMiniTask] = useState([]);
 
-    const taskDelete = (current) =>{
-        console.log("Click task delete");
-        console.log(current);
-    }
+    const [showModalDelete,setShowModalDelete] = useState(false);
 
     return (
         <div className="task-items">
@@ -23,12 +22,17 @@ function ItemsFromList({ tasks, idTask }) {
                         </div>
                         <div className='icon-actions'>
                             <span className='icon e-icon' onClick={() => setEditMiniTask(task)}><FaPencil /></span>
-                            <span className='icon d-icon' onClick={() => taskDelete(task)}><FaXmark /></span>
-
+                            <span className='icon d-icon' onClick={() => {setShowModalDelete(true); setDeleteMiniTask(task); }}><FaXmark /></span>
                         </div>
                     </div>
                 ))
             }
+
+            {showModalDelete 
+            ? <ModalAdvise closeModal={setShowModalDelete} text="¿Desea eliminar esta tarea?" id={idTask} taskDelete={deleteMiniTask} /> 
+            :
+             <Fragment />
+             }
         </div>
     );
 }
