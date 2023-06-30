@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import '../styles/ListaTareas.css'
 import ItemsFromList from './ItemFromList';
 import EditSubjectTask from './EditSubjectTask';
+import httpService from '../services/httpService'
 import { FiTrash2, FiEdit3 } from 'react-icons/fi'
 
 function ListaTareas({ data }) {
@@ -18,7 +19,8 @@ function ListaTareas({ data }) {
 
     const SubjectDelete = (item) => {
         const allTask = data.filter(i => i.id !== item.id);
-        console.log(allTask);
+        httpService.setNewTaskToLocalStorage(allTask);
+        setDataTask(allTask);
     }
 
     return (
