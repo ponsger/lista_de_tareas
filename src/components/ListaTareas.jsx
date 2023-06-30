@@ -1,26 +1,30 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 import '../styles/ListaTareas.css'
 import ItemsFromList from './ItemFromList';
 import EditSubjectTask from './EditSubjectTask';
 import httpService from '../services/httpService'
 import { FiTrash2, FiEdit3 } from 'react-icons/fi'
+import ModalAdvise from './ModalAdvise';
+import { DataStoraged } from '../App';
 
 function ListaTareas({ data }) {
+
+    const {setChangeData} = useContext(DataStoraged);
 
     const [subjectTasks, setSubjectTasks] = useState("");
     const [dataTask, setDataTask] = useState([]);
 
     const [subjectEdit,setSubjectEdit]=useState({});
-    //const [displayEdit,setDisplayEdit] = useState(false);
+    const [showModalDelete,setShowModalDelete] = useState(false);
 
     useEffect(() => {
         setDataTask(data)
     }, [data]);
 
-    const SubjectDelete = (item) => {
+    const SubjectDelete = (item,id) => {
         const allTask = data.filter(i => i.id !== item.id);
         httpService.setNewTaskToLocalStorage(allTask);
-        setDataTask(allTask);
+        setChangeData(allTask);
     }
 
     return (
@@ -32,7 +36,17 @@ function ListaTareas({ data }) {
                                 {subjectEdit.id ===item.id  ? <EditSubjectTask changeData={setSubjectEdit} currentSubject={item} /> :  <p className='subject' >{item.subject}</p>}
                             <div className='icon-actions'>
                                 <span className='icon e-icon' onClick={() => setSubjectEdit(item)}><FiEdit3 /></span>
-                                <span className='icon d-icon' onClick={() => SubjectDelete(item)}><FiTrash2 /></span>
+                                <span className='icon d-icon' onClick={() => setShowModalDelete(true)}><FiTrash2 /></span>
+                                {showModalDelete ?
+                                 <ModalAdvise closeModal={setShowModalDelete} 
+                                text={"¿Desea eliminar este objetivo?"}
+                                taskDelete={item}
+                                id={item.id}
+                                actionToDo={SubjectDelete}
+                                /> 
+                                
+                                
+                                : <Fragment />}
                             </div>
                         </div>
                         <div className='task-list_container'>

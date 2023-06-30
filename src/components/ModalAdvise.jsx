@@ -1,10 +1,11 @@
 import '../styles/ModalAdvise.css'
-import httpService from '../services/httpService'
 
-function ModalAdvise({ closeModal, text,taskDelete,id }) {
+function ModalAdvise({ closeModal, text,taskDelete,id,actionToDo }) {
 
-    const DeleteTask = () =>{
-        httpService.removeMiniTask(taskDelete,id);
+
+    const ActionToDoTask = () =>{
+
+        actionToDo(taskDelete,id);
         closeModal(false);
     }
 
@@ -19,7 +20,7 @@ function ModalAdvise({ closeModal, text,taskDelete,id }) {
                     <p >{text}</p>
                     <div className='modal-buttons'>
                         <button className='btn btn-info' onClick={() => closeModal(false)}>Cancelar</button>
-                        <button className='btn btn-delete' onClick={() => DeleteTask()}>Eliminar</button>
+                        <button className='btn btn-delete' onClick={() => ActionToDoTask()}>Eliminar</button>
                     </div>
                 </div>
             </div>

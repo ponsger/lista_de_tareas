@@ -49,6 +49,7 @@ class HttpService{
         const currentMiniTaskIndex=currentTask.list.findIndex( cmt => cmt.task ===task.task);
         allTasks[currentIndexMainTask].list[currentMiniTaskIndex]=miniTask;
         this.setNewTaskToLocalStorage(allTasks);
+        return allTasks;
     }
 
     removeMiniTask(task,idTask){
@@ -58,6 +59,7 @@ class HttpService{
         const currentMiniTaskIndex=currentTask.list.findIndex( cmt => cmt.task ===task.task);
         allTasks[currentIndexMainTask].list.splice(currentMiniTaskIndex,1);
         this.setNewTaskToLocalStorage(allTasks);
+        return allTasks;
     }
 
 
