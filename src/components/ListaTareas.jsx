@@ -16,15 +16,19 @@ function ListaTareas({ data }) {
 
     const [subjectEdit,setSubjectEdit]=useState({});
     const [showModalDelete,setShowModalDelete] = useState(false);
+    const [deleteSubject,setDeleteSubject] = useState({});
 
     useEffect(() => {
         setDataTask(data)
     }, [data]);
 
     const SubjectDelete = (item,id) => {
-        const allTask = data.filter(i => i.id !== item.id);
+        //console.log(data,item);
+        const allTask = data.filter(i => i.id !==deleteSubject.id);
+        console.log(allTask);
         httpService.setNewTaskToLocalStorage(allTask);
         setChangeData(allTask);
+        setDeleteSubject({});
     }
 
     return (
@@ -36,7 +40,7 @@ function ListaTareas({ data }) {
                                 {subjectEdit.id ===item.id  ? <EditSubjectTask changeData={setSubjectEdit} currentSubject={item} /> :  <p className='subject' >{item.subject}</p>}
                             <div className='icon-actions'>
                                 <span className='icon e-icon' onClick={() => setSubjectEdit(item)}><FiEdit3 /></span>
-                                <span className='icon d-icon' onClick={() => setShowModalDelete(true)}><FiTrash2 /></span>
+                                <span className='icon d-icon' onClick={() => {setShowModalDelete(true); setDeleteSubject(item)}}><FiTrash2 /></span>
                                 {showModalDelete ?
                                  <ModalAdvise closeModal={setShowModalDelete} 
                                 text={"¿Desea eliminar este objetivo?"}
@@ -44,8 +48,6 @@ function ListaTareas({ data }) {
                                 id={item.id}
                                 actionToDo={SubjectDelete}
                                 /> 
-                                
-                                
                                 : <Fragment />}
                             </div>
                         </div>

@@ -1,6 +1,6 @@
-import { Fragment, useContext } from "react";
-import httpService from '../services/httpService'
-import {DataHasChange} from '../App'
+import { Fragment } from "react";
+import httpService from '../services/httpService';
+import '../styles/EditSubjectTask.css';
 
 function EditSubjectTask({ currentSubject,changeData }) {
 
@@ -18,9 +18,9 @@ function EditSubjectTask({ currentSubject,changeData }) {
 
     return (
         <Fragment>
-            <form onSubmit={(e)=> HandleSaveSubject(e)}>
-                <input type="text" name="newSubject" defaultValue={currentSubject.subject} />
-                <input type="submit" className="btn btn-add" value='Guardar' />
+            <form className="subject-form" onSubmit={(e)=> HandleSaveSubject(e)}>
+                <input type="text" className="subject-tittle" name="newSubject" defaultValue={currentSubject.subject} />
+                <input type="submit" className="btn btn-add submit_button" value='Guardar' />
             </form>
 
         </Fragment>
