@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     border-top: 1px solid #770055;
+    width: 100%;
 }
 
 .task-items{
@@ -13,4 +14,32 @@
 
 .taskOfSubject{
     width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: .9em;
 }
+
+@media (max-width:500px){
+    .task{
+        flex-wrap: wrap;
+        align-items: center;
+        border-bottom: 1px solid #333;
+        padding-top: 5%;
+        flex-direction: column;
+    }
+
+    .taskOfSubject{
+        width: 75%;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        font-size: .7em;
+    }
+
+    .task .icon-actions .icon{
+        font-size: 1.2em;
+    }
+}
+
+

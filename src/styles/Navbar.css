@@ -49,3 +49,15 @@
 .navbar-task_list-item:active{
     background-color: #1091ed;
 }
+
+
+@media (max-width:600px) {
+    .navbar{
+        margin-bottom: 5%;
+    }
+
+    .navbar-date{
+        display: none;
+    }
+
+}

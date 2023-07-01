@@ -1,7 +1,9 @@
 .task-name{
     font-size: .9rem;
     font-weight: 500;
+    width: 80%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     cursor: pointer;
     transition: all .5s ease-in-out;
 }
+

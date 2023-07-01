@@ -43,3 +43,38 @@
 .task-submit input{
     width: 100%;
 }
+
+
+@media (max-width:750px){
+
+    .task_label{
+        font-size: .8rem;
+    }
+
+    .task_value{
+        width: 70%;
+        font-size: .7rem;
+        height: 30px;
+    }
+}
+
+
+@media (max-width:500px){
+
+    .task_edit{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .task-description_edit,.task-date_edit{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .task_label,.task_value{
+        width: 100%;
+    }
+    
+    .task-submit{
+        font-size: .7rem;
+        width: auto;
+    }
+}
