@@ -1,0 +1,45 @@
+.task_edit{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.task-description_edit{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 10px;
+}
+
+.task_label{
+    font-size: 1rem;
+    text-transform: capitalize;
+    margin-right: 5px;
+    width: 20%;
+}
+
+.task_value{
+    width: 80%;
+    font-size: 1.1rem;
+}
+
+.task-date_edit{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.task-submit{
+    width: 50%;
+}
+
+.task-submit input{
+    width: 100%;
+}

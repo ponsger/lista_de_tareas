@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import httpService from '../services/httpService'
 import { DataStoraged } from '../App';
+import '../styles/ShowMiniTask.css'
 
 function ShowMiniTask({task,idTask}) {
 
@@ -16,8 +17,8 @@ function ShowMiniTask({task,idTask}) {
 
     return (
         <>
-            <input id={task.task} type='checkbox' defaultChecked={task.done} onChange={() => checkedMiniTask(task)} />
-            <label htmlFor={task.task}>{task.task}</label>
+            <input id={task.task} className='task-description' type='checkbox' defaultChecked={task.done} onChange={() => checkedMiniTask(task)} />
+            <label className='task-name' htmlFor={task.task}>{task.task}</label>
             <p>Fecha colocada: {task.maximumDate}</p>
         </>
     )
