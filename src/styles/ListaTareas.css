@@ -4,7 +4,7 @@
     border: 1px solid #eee;
     border-radius: 5px;
     text-align: center;
-    margin: 0 15%;
+    margin: 0 15% 5% 15%;
     align-self: center;
 }
 
@@ -25,6 +25,7 @@
     text-transform: capitalize;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .icon-actions{
@@ -35,7 +36,7 @@
 }
 
 .subject{
-    width: 90%;
+    width: 75%;
 }
 
 .icon{
@@ -62,4 +63,30 @@
 
 .d-icon:hover{
     background-color: #dd0055;
+}
+
+
+@media (max-width:750px){
+    .task-list-subject{
+        font-size: .9em;
+    }
+
+    .task-subject{
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .icon-actions{
+        font-size: .9rem;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width:500px) {
+    .task-subject{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

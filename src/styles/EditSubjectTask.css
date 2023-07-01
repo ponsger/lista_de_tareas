@@ -19,3 +19,31 @@
 .submit_button{
     width: 20%;
 }
+
+@media (max-width:1020px){
+
+    .subject-form{
+        width: 80%;
+        font-size: .9rem;
+    }
+
+    .submit_button{
+        width: 30%;
+        font-size: .9rem !important; 
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .subject-tittle{
+        font-size: .8rem;
+        width: 85%;
+    }
+
+}
+@media (max-width:500px) {
+    .submit_button{
+        width: 30%;
+        font-size: .75rem !important; 
+        font-family: 'Courier New', Courier, monospace;
+        width: 100%;
+    }
+}

@@ -8,3 +8,11 @@ body{
   justify-content: space-evenly;
   width: 100%;
 }
+
+@media (max-width:1000px){
+  .app-container{
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+}
