@@ -1,6 +1,6 @@
 import '../styles/Tarea.css'
 
-function Tarea({clave,colocaDato}) {
+function Tarea({clave}) {
 
     return (
         <div className='newTask' key={clave}>

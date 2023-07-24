@@ -25,6 +25,8 @@ function CreaTarea({ subject }) {
         const dataConverted=jsonService.convertDataToJson(data);
         const allNewTasks=GetAndSetFromLocalStorage(dataConverted);
         setChangeData(allNewTasks);
+        EraseForm(e);
+        setArray([]);
     }
 
     const GetAndSetFromLocalStorage = (data) => {
@@ -34,6 +36,12 @@ function CreaTarea({ subject }) {
         tasks.push(data);
         httpService.setNewTaskToLocalStorage(tasks);
         return tasks;
+    }
+
+    const EraseForm = (data) =>{
+        for(let element of data.target ){
+            element.value="";
+        }
     }
 
     return (

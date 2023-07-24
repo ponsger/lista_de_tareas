@@ -25,7 +25,6 @@ function ListaTareas({ data }) {
     const SubjectDelete = (item,id) => {
         //console.log(data,item);
         const allTask = data.filter(i => i.id !==deleteSubject.id);
-        console.log(allTask);
         httpService.setNewTaskToLocalStorage(allTask);
         setChangeData(allTask);
         setDeleteSubject({});
