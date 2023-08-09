@@ -21,7 +21,7 @@ function App() {
   return (
     <Fragment>
       <Navbar newTask={setNewSubject} />
-      {/* <PhraseOfDay /> */}
+      <PhraseOfDay /> 
       <DataStoraged.Provider value={{changeData,setChangeData}}>
         <div className='app-container'>
           <ListaTareas data={changeData} />
