@@ -1,7 +1,7 @@
 import { Fragment, createContext, useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import PhraseOfDay from './components/PhraseOfDay'
+// import PhraseOfDay from './components/PhraseOfDay'
 import ListaTareas from './components/ListaTareas';
 import CreaTarea from './components/CreaTarea'
 import httpService from './services/httpService'
@@ -21,7 +21,7 @@ function App() {
   return (
     <Fragment>
       <Navbar newTask={setNewSubject} />
-      <PhraseOfDay /> 
+      {/* <PhraseOfDay />  */}
       <DataStoraged.Provider value={{changeData,setChangeData}}>
         <div className='app-container'>
           <ListaTareas data={changeData} />
